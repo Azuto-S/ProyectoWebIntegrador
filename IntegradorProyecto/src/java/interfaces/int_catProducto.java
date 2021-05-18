@@ -8,7 +8,7 @@ package interfaces;
 import modelo.categoria_producto;
 
 
-public interface int_categoriaProducto {
+public interface int_catProducto {
     public boolean agregar(categoria_producto cp);
     public boolean editar(categoria_producto cp);
     public boolean eliminar(int cod);

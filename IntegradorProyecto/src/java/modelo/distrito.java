@@ -7,8 +7,11 @@ package modelo;
 
 
 public class distrito {
+    
     private String nombre;
     private double costo;
+    
+    
 
     public String getNombre() {
         return nombre;

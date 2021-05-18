@@ -8,6 +8,7 @@ package modelo;
 
 public class categoria_producto {
     private String nombre;
+    private int codigo;
 
     public String getNombre() {
         return nombre;
@@ -16,6 +17,8 @@ public class categoria_producto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+    public int getCodigo(){
+        return codigo;
+    }
     
 }
