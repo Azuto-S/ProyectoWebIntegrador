@@ -9,6 +9,9 @@ import interfaces.int_cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.cliente;
 
 public class cliente_DAO implements int_cliente{
@@ -20,22 +23,61 @@ public class cliente_DAO implements int_cliente{
 
     @Override
     public boolean agregar(cliente c) {
-        String sql="insert into cliente (id,nombre,ape_paterno,ape_materno,"
+        
+        try {
+            String sql="insert into cliente (id,nombre,ape_paterno,ape_materno,"
                 + "sexo,telefono,correo,contrasena,id_distrito,direccion,referencia) values("+c.getDni()+
                 ",'"+c.getNombre()+"','"+c.getApe_paterno()+"','"+c.getApe_materno()+"','"+
-                c.getSexo()+"','"+c.getTelefono()+"','"+c.getCorreo()+"','"+c.getContrasena();
+                c.getSexo()+"','"+c.getTelefono()+"','"+c.getCorreo()+"','"+c.getContrasena()+"',"+
+                c.getDistrito()+",'"+c.getDireccion()+"','"+c.getReferencia()+"')";
+            con=cn.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            
+                Logger.getLogger(cliente_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
         
         return false;
     }
 
     @Override
     public boolean editar(cliente c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
+        try {
+            String sql="update cliente set "
+                    +"nombre='"+c.getNombre()+"', "
+                    +"ape_paterno='"+c.getNombre()+"', "
+                    +"ape_materno='"+c.getNombre()+"', "
+                    +"sexo='"+c.getNombre()+"', "
+                    +"telefono='"+c.getNombre()+"', "
+                    +"correo='"+c.getNombre()+"', "
+                    +"contrasena='"+c.getNombre()+"', "
+                    +"id_distrito="+c.getNombre()+", "
+                    +"direccion='"+c.getNombre()+"', "
+                    +"referencia='"+c.getNombre()+"' where id="+c.getDni();
+            con= cn.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             return false;   
     }
 
     @Override
     public boolean eliminar(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String sql="delete from cliente where id="+c.getDni();
+            con = cn.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
     
 }

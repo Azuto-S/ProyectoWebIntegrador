@@ -7,6 +7,7 @@ package modelo;
 
 
 public class subcategoria_producto {
+    private int id;
     private String categoria;
     private String nombre;
 
@@ -24,6 +25,14 @@ public class subcategoria_producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

@@ -7,10 +7,17 @@ package modelo;
 
 
 public class distrito {
-    
+    private int id;
     private String nombre;
     private double costo;
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
 
     public String getNombre() {

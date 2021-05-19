@@ -11,7 +11,7 @@ public class cliente {
     private String telefono;
     private String correo;
     private String contrasena;
-    private String distrito;
+    private int distrito;
     private String direccion;
     private String referencia;
 
@@ -80,11 +80,11 @@ public class cliente {
         this.contrasena = contrasena;
     }
 
-    public String getDistrito() {
+    public int getDistrito() {
         return distrito;
     }
 
-    public void setDistrito(String distrito) {
+    public void setDistrito(int distrito) {
         this.distrito = distrito;
     }
 

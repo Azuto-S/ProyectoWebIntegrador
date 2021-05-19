@@ -3,10 +3,19 @@ package modelo;
 
 
 public class producto {
+   private int id;
    private int subcategoria;
    private String nombre;
    private double precio;
    private int stock;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getSubcategoria() {
         return subcategoria;
