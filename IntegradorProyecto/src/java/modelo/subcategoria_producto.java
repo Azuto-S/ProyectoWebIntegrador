@@ -8,14 +8,14 @@ package modelo;
 
 public class subcategoria_producto {
     private int id;
-    private String categoria;
+    private int categoria;
     private String nombre;
 
-    public String getCategoria() {
+    public int getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(int categoria) {
         this.categoria = categoria;
     }
 

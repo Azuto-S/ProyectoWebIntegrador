@@ -48,15 +48,15 @@ public class cliente_DAO implements int_cliente{
         try {
             String sql="update cliente set "
                     +"nombre='"+c.getNombre()+"', "
-                    +"ape_paterno='"+c.getNombre()+"', "
-                    +"ape_materno='"+c.getNombre()+"', "
-                    +"sexo='"+c.getNombre()+"', "
-                    +"telefono='"+c.getNombre()+"', "
-                    +"correo='"+c.getNombre()+"', "
-                    +"contrasena='"+c.getNombre()+"', "
-                    +"id_distrito="+c.getNombre()+", "
-                    +"direccion='"+c.getNombre()+"', "
-                    +"referencia='"+c.getNombre()+"' where id="+c.getDni();
+                    +"ape_paterno='"+c.getApe_paterno()+"', "
+                    +"ape_materno='"+c.getApe_materno()+"', "
+                    +"sexo='"+c.getSexo()+"', "
+                    +"telefono='"+c.getTelefono()+"', "
+                    +"correo='"+c.getCorreo()+"', "
+                    +"contrasena='"+c.getContrasena()+"', "
+                    +"id_distrito="+c.getDistrito()+", "
+                    +"direccion='"+c.getDireccion()+"', "
+                    +"referencia='"+c.getReferencia()+"' where id="+c.getDni();
             con= cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();

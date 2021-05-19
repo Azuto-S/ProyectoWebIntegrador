@@ -23,7 +23,8 @@ public class subCatProducto_DAO implements int_subCatProducto{
     @Override
     public boolean agregar(subcategoria_producto sc) {
         try {
-            String sql="insert into";
+            String sql="insert into subcategoria (id_categoria,nombre) values ("
+                    +sc.getCategoria()+",'"+sc.getNombre()+"')";
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -36,7 +37,9 @@ public class subCatProducto_DAO implements int_subCatProducto{
     @Override
     public boolean editar(subcategoria_producto sc) {
          try {
-            String sql="";
+            String sql="update subcategoria set "
+                    +"id_categoria="+sc.getCategoria()+", "
+                    +"nombre='"+sc.getNombre()+"' where id="+sc.getId();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -49,7 +52,7 @@ public class subCatProducto_DAO implements int_subCatProducto{
     @Override
     public boolean eliminar(int cod) {
          try {
-            String sql="";
+            String sql="delete from subcategoria where id="+sc.getId();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
