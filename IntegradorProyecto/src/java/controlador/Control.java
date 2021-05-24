@@ -368,7 +368,7 @@ public class Control extends HttpServlet {
             int cod = Integer.parseInt(request.getParameter("codigo"));
             cp=dao_CatPro.listarUnaCategoria(cod);
             request.setAttribute("catpro", cp);
-            acceso=paginaEditarDistrito;
+            acceso=paginaEditarCategoriaProducto;
         }
         
         if(action.equalsIgnoreCase("Editar CategoriaProducto")){
@@ -394,7 +394,7 @@ public class Control extends HttpServlet {
         
         //tabla subCategoriaProducto
         if(action.equalsIgnoreCase("agregarSubCatPro")){
-            acceso=paginaAgregarDistrito;
+            acceso=paginaAgregarCategoriaProducto;
         }
         
         if(action.equalsIgnoreCase("Agregar subCatPro")){
