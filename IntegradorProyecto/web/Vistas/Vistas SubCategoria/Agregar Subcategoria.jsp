@@ -9,7 +9,7 @@
         <h1>Agregar Sub Categoria Producto</h1>
         <form action="Control" method="post">
             Categoria:
-         <select name="categoria">
+         <select name="SubcCategoria">
                 <c:forEach var="lis" items="${lista}">
                     <option value="${lis.getId()}">${lis.getCategoria()}</option>
                 </c:forEach>
@@ -17,7 +17,7 @@
             Nombre:
             <input type="text" name="nombre"><br>
             
-            <input type="submit" name="accion" value="Agregar categoria">
+            <input type="submit" name="accion" value="Agregar SubCatPro">
         </form>
     </body>
 </html>
