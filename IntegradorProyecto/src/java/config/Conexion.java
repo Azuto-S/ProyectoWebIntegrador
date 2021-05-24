@@ -19,7 +19,7 @@ public class Conexion {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Conexion fallida");
         }
-        //bjjsbjdvs
+        
     }
     public Connection getConnection(){
         return con;
