@@ -4,18 +4,17 @@
     Author     : jose2
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="es">
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport"  content="width=device-width, initial-scale=1.8">
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Holaaaaaaaaaa uwu</h1>
          <br><br><br><br><br><br><br><br><br>
     <div class="text-md-left">
-        <h4 class="font-italic p-xl-3 bg-warning text-white">Â¡Promociones de la semana!</h4>
+        <h4 class="font-italic p-xl-3 bg-warning text-white">¡Promociones de la semana!</h4>
     </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -43,6 +42,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
     </body>
 </html>
