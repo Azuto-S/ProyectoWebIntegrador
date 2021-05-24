@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.cliente;
@@ -20,6 +21,7 @@ public class cliente_DAO implements int_cliente{
     PreparedStatement ps;
     ResultSet rs;
     cliente c;
+    ArrayList<cliente>lista=new ArrayList<>();
 
     @Override
     public boolean agregar(cliente c) {
@@ -78,6 +80,66 @@ public class cliente_DAO implements int_cliente{
             Logger.getLogger(cliente_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    @Override
+    public cliente listarUnCliente(int dni) {
+        try {
+            String sql="selec dni,nombre,ape_paterno,ape_materno,"
+                + "sexo,telefono,correo,contrasena,nom_dis,direccion,referencia from cliente, distrito "
+                 +  "where cliente.id_distrito = distrito.id and cliente.id="+dni;
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                c= new cliente();
+                c.setDni(rs.getInt("id"));
+                c.setNombre(rs.getString("nombre"));
+                c.setApe_materno(rs.getString("ape_paterno"));
+                c.setApe_paterno(rs.getString("ape_materno"));
+                c.setSexo(rs.getString("sexo"));
+                c.setTelefono(rs.getString("telefono"));
+                c.setCorreo(rs.getString("correo"));
+                c.setContrasena(rs.getString("contrasena"));
+                c.setDistrito(rs.getInt("nom_dis"));
+                c.setDireccion(rs.getString("direccion"));
+                c.setReferencia(rs.getString("referencia"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return c;
+    }
+
+    @Override
+    public ArrayList<cliente> listarTodosClientes() {
+        try {
+            String sql="selec nombre,ape_paterno,ape_materno,"
+                + "sexo,telefono,correo,contrasena,nom_dis,direccion,referencia from cliente, distrito "
+                 +  "where cliente.id_distrito = distrito.id";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                c=new cliente();
+                c= new cliente();
+                c.setDni(rs.getInt("id"));
+                c.setNombre(rs.getString("nombre"));
+                c.setApe_materno(rs.getString("ape_paterno"));
+                c.setApe_paterno(rs.getString("ape_materno"));
+                c.setSexo(rs.getString("sexo"));
+                c.setTelefono(rs.getString("telefono"));
+                c.setCorreo(rs.getString("correo"));
+                c.setContrasena(rs.getString("contrasena"));
+                c.setDistrito(rs.getInt("nom_dis"));
+                c.setDireccion(rs.getString("direccion"));
+                c.setReferencia(rs.getString("referencia"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
     
 }

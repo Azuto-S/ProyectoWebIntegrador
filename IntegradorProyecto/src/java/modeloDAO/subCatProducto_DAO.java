@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.subcategoria_producto;
@@ -19,11 +20,12 @@ public class subCatProducto_DAO implements int_subCatProducto{
     PreparedStatement ps;
     ResultSet rs;
     subcategoria_producto sc;
+    ArrayList<subcategoria_producto>lista=new ArrayList<>();
 
     @Override
     public boolean agregar(subcategoria_producto sc) {
         try {
-            String sql="insert into subcategoria (id_categoria,nombre) values ("
+            String sql="insert into subcategoria (id_categoria,nombre_sub) values ("
                     +sc.getCategoria()+",'"+sc.getNombre()+"')";
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -39,7 +41,7 @@ public class subCatProducto_DAO implements int_subCatProducto{
          try {
             String sql="update subcategoria set "
                     +"id_categoria="+sc.getCategoria()+", "
-                    +"nombre='"+sc.getNombre()+"' where id="+sc.getId();
+                    +"nombre_sub='"+sc.getNombre()+"' where id="+sc.getId();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -60,6 +62,46 @@ public class subCatProducto_DAO implements int_subCatProducto{
             Logger.getLogger(subCatProducto_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    @Override
+    public subcategoria_producto listarUnaSubCat(int id) {
+        try {
+            String sql="select id,nombre_cat,nombre_sub from subcategoria,categoria"
+                    +"where subcategoria.id_categoria = categoria.id and subcategoria.id="+id;
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                sc=new subcategoria_producto();
+                sc.setId(rs.getInt("id"));
+                sc.setCategoria(rs.getInt("nombre_cat"));
+                sc.setNombre(rs.getString("nombre_sub"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(subCatProducto_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sc;
+    }
+
+    @Override
+    public ArrayList<subcategoria_producto> listarTodosSubCat() {
+        try {
+            String sql="select id,nombre_cat,nombre_sub from subcategoria,categoria"
+                    +"where subcategoria.id_categoria = categoria.id";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                sc=new subcategoria_producto();
+                sc.setId(rs.getInt("id"));
+                sc.setCategoria(rs.getInt("nombre_cat"));
+                sc.setNombre(rs.getString("nombre_sub"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(subCatProducto_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
     
 }

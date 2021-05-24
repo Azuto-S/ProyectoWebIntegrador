@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import java.util.ArrayList;
 import modelo.distrito;
 
 
@@ -12,4 +13,6 @@ public interface int_distrito {
     public boolean agregar(distrito d);
     public boolean editar(distrito d);
     public boolean eliminar(int cod);
+    public distrito listarUnDistrito(int id);
+    public ArrayList<distrito> listarTodosDistritos();
 }

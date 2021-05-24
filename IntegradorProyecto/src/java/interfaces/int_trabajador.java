@@ -5,10 +5,13 @@
  */
 package interfaces;
 
+import java.util.ArrayList;
 import modelo.trabajador;
 
 public interface int_trabajador {
     public boolean agregar(trabajador t);
     public boolean editar(trabajador t);
     public boolean eliminar(int cod);
+    public trabajador listarUnTrabajador(int dni);
+    public ArrayList<trabajador> listarTodosTrabajadores();
 }

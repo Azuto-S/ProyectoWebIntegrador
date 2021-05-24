@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.trabajador;
@@ -20,7 +21,7 @@ public class trabajador_DAO implements int_trabajador{
     PreparedStatement ps;
     ResultSet rs;
     trabajador t;
-
+    ArrayList<trabajador>lista = new ArrayList<>();
     @Override
     public boolean agregar(trabajador t) {
         try {
@@ -71,6 +72,61 @@ public class trabajador_DAO implements int_trabajador{
             Logger.getLogger(trabajador_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    @Override
+    public trabajador listarUnTrabajador(int dni) {
+        try {
+            String sql="selec id,nombre_tipo,nombre,ape_paterno,ape_materno,"
+                + "sexo,telefono,correo,contrasena,direccion from trabajador, tipotrabajador "
+                 +  "where trabajador.id_tipotrabajador=tipotrabajador.id trabajador.id="+dni;
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                t= new trabajador();
+                t.setDni(rs.getInt("id"));
+                t.setTipo(rs.getInt("nombre_tipo"));
+                t.setNombre(rs.getString("nombre"));
+                t.setApe_materno(rs.getString("ape_paterno"));
+                t.setApe_paterno(rs.getString("ape_materno"));
+                t.setSexo(rs.getString("sexo"));
+                t.setTelefono(rs.getString("telefono"));
+                t.setCorreo(rs.getString("correo"));
+                t.setContrasena(rs.getString("contrasena"));
+                t.setDireccion(rs.getString("direccion"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(trabajador_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return t;
+    }
+
+    @Override
+    public ArrayList<trabajador> listarTodosTrabajadores() {
+        try {
+            String sql="selec id,nombre_tipo,nombre,ape_paterno,ape_materno,"
+                + "sexo,telefono,correo,contrasena,direccion from trabajador "
+                +"where trabajador.id_tipotrabajador=tipotrabajador.id";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                t= new trabajador();
+                t.setDni(rs.getInt("id"));
+                t.setTipo(rs.getInt("nombre_tipo"));
+                t.setApe_materno(rs.getString("ape_paterno"));
+                t.setApe_paterno(rs.getString("ape_materno"));
+                t.setSexo(rs.getString("sexo"));
+                t.setTelefono(rs.getString("telefono"));
+                t.setCorreo(rs.getString("correo"));
+                t.setContrasena(rs.getString("contrasena"));
+                t.setDireccion(rs.getString("direccion"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(trabajador_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
     
     

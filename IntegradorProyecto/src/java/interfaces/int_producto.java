@@ -5,10 +5,13 @@
  */
 package interfaces;
 
+import java.util.ArrayList;
 import modelo.producto;
 
 public interface int_producto {
     public boolean agregar(producto p);
     public boolean editar(producto p);
     public boolean eliminar(int cod);
+    public producto listarUnProducto(int id);
+    public ArrayList<producto> listarTodosProducto();
 }

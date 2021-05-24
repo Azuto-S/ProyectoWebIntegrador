@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.producto;
@@ -20,6 +21,7 @@ public class producto_DAO implements int_producto{
     PreparedStatement ps;
     ResultSet rs;
     producto p;
+    ArrayList<producto>lista=new ArrayList<>();
 
     @Override
     public boolean agregar(producto p) {
@@ -65,6 +67,53 @@ public class producto_DAO implements int_producto{
             Logger.getLogger(producto_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    @Override
+    public producto listarUnProducto(int id) {
+        try {
+            String sql="select id,nombre_sub,nombre,precio,stock from producto,subcategoria"
+                    +"where producto.id_subcategoria=subcategoria.id and producto="+id;
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+           while(rs.next()){
+               p =  new producto();
+               p.setId(rs.getInt("id"));
+               p.setSubcategoria(rs.getInt("nombre_sub"));
+               p.setNombre(rs.getString("nombre"));
+               p.setPrecio(rs.getDouble("precio"));
+               p.setStock(rs.getInt("stock"));
+           }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(producto_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
+
+    @Override
+    public ArrayList<producto> listarTodosProducto() {
+         try {
+            String sql="select id,nombre_sub,nombre,precio,stock from producto,subcategoria"
+                    +"where producto.id_subcategoria=subcategoria.id";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+           while(rs.next()){
+               p =  new producto();
+               p.setId(rs.getInt("id"));
+               p.setSubcategoria(rs.getInt("nombre_sub"));
+               p.setNombre(rs.getString("nombre"));
+               p.setPrecio(rs.getDouble("precio"));
+               p.setStock(rs.getInt("stock"));
+           }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(producto_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
     
 }

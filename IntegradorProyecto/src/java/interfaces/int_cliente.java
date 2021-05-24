@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import java.util.ArrayList;
 import modelo.cliente;
 
 
@@ -12,4 +13,6 @@ public interface int_cliente {
     public boolean agregar(cliente c);
     public boolean editar(cliente c);
     public boolean eliminar(int cod);
+    public cliente listarUnCliente(int dni);
+    public ArrayList<cliente> listarTodosClientes();
 }

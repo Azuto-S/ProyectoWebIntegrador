@@ -20,5 +20,9 @@ public class categoria_producto {
     public int getCodigo(){
         return codigo;
     }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
     
 }

@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.distrito;
@@ -21,11 +22,11 @@ public class distrito_DAO implements int_distrito{
     PreparedStatement ps;
     ResultSet rs;
     distrito d;
-
+    ArrayList<distrito>lista=new ArrayList<>();
     @Override
     public boolean agregar(distrito d) {
         try {
-            String sql="insert into distrito (nombre,costoenvio) values('"
+            String sql="insert into distrito (nom_dis,costoenvio) values('"
                     +d.getNombre()+"',"+d.getCosto()+")";
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -40,7 +41,7 @@ public class distrito_DAO implements int_distrito{
     public boolean editar(distrito d) {
         try {
             String sql="update distrito set "
-                    +"nombre='"+d.getNombre()+"', "
+                    +"nom_dis='"+d.getNombre()+"', "
                     +"costoenvio="+d.getCosto()+" where id="+d.getId();
             con= cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -66,6 +67,44 @@ public class distrito_DAO implements int_distrito{
             Logger.getLogger(distrito_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    @Override
+    public distrito listarUnDistrito(int id) {
+        try {
+            String sql="selec id,nombre,costoenvio from distrito where id="+id;
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                d=new distrito();
+                d.setId(rs.getInt("id"));
+                d.setNombre(rs.getString("nom_dis"));
+                d.setCosto(rs.getDouble("costoenvio"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(distrito_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return d;
+    }
+
+    @Override
+    public ArrayList<distrito> listarTodosDistritos() {
+         try {
+            String sql="selec id,nombre,costoenvio from distrito";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                d=new distrito();
+                d.setId(rs.getInt("id"));
+                d.setNombre(rs.getString("nom_dis"));
+                d.setCosto(rs.getDouble("costoenvio"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(distrito_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
     
     
