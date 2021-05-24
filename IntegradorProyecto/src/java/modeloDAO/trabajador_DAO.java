@@ -79,7 +79,7 @@ public class trabajador_DAO implements int_trabajador{
         try {
             String sql="selec id,nombre_tipo,nombre,ape_paterno,ape_materno,"
                 + "sexo,telefono,correo,contrasena,direccion from trabajador, tipotrabajador "
-                 +  "where trabajador.id_tipotrabajador=tipotrabajador.id trabajador.id="+dni;
+                 +  "where trabajador.id_tipotrabajador=tipotrabajador.id and trabajador.id="+dni;
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
