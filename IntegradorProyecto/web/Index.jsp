@@ -1,20 +1,27 @@
+<%-- 
+    Document   : Index.jsp
+    Created on : 24/05/2021, 10:31:56 PM
+    Author     : Yanira
+--%>
 
-<html> 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <title>JSP Page</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet"> 
     <link href="css/carousel.css" rel="stylesheet"> 
     <link href="css/estilos.css" rel="stylesheet">
+        
     </head>
     <body>
-        <div class="container">
+         <div class="container">
 
       <header class="masthead">
 
         <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -27,27 +34,38 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Cuidado Personal</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Salud y Bienestar</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="Control?accion=agregarCliente">Agregar</a> 
+                    <a class="dropdown-item" href="Control?accion=agregarCliente">Listar</a>
+                </div>
               </li> 
-               <li class="nav-item">
-                <a class="nav-link" href="">Nutrición</a>
+               <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Producto</a> 
+                      <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="Control?accion=agregarProducto">Agregar</a> 
+                    <a class="dropdown-item" href="Control?accion=agregarProducto">Listar</a>
+                </div>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nosotros</a>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipo de Mercadería</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" href="nosotros.html">Misión</a>
-                  <a class="dropdown-item" href="nosotros.html">Visión</a>                  
+                    <a class="dropdown-item" href="Control?accion=agregarCategoría">Categoría</a> 
+                    <a class="dropdown-item" href="Control?accion=agregarSubCatPro">Subcategoria</a>
+              </li> 
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Funciones</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" href="Control?accion=agregarDistrito">Agregar Distrito</a>           
+                  <a class="dropdown-item" href="Control?accion=agregarTrabajador">Agregar Trabajador</a>    
                 </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="Login.jsp" target="_blank">Iniciar Sesión</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=""  >Mi Carrito</a>
+                <a class="nav-link" href="">Mi Carrito</a>
               </li>
               
             </ul>
@@ -101,11 +119,10 @@
         </div> 
         
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     </body> 
     <br> 
-     <hr>
-     <p>&reg Brindamos asistencia remota</p> <p>Contacto: 999-278-456</p>
+<hr>
+<p>&reg Brindamos asistencia remota</p> <p>Contacto: 999-278-456</p>
 </html>
