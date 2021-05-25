@@ -84,7 +84,7 @@
                 </tr>           
                 <c:forEach var="lisPro" items="${lista}">
                     <tr>
-                        <td>${lisPro.getSubcategoria()}</td>
+                        <td>${lisPro.getNom_sub()}</td>
                         <td>${lisPro.getNombre()}</td>
                         <td>${lisPro.getPrecio()}</td>
                         <td>${lisPro.getStock()}</td>

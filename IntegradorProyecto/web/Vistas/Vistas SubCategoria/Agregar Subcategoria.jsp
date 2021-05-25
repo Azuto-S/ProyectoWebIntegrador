@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modeloDAO.catProducto_DAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -73,7 +76,7 @@
                 Categoria:
                 <select class="form-control" name="categoria">
                     <c:forEach var="liscatPro" items="${lista}">
-                        <option value="${liscatPro.getId()}">${liscatPro.getNombre()}</option>
+                        <option value="${liscatPro.getCodigo()}" >${liscatPro.getNombre()}</option>
                     </c:forEach>
                 </select><br>  
                 Nombre:

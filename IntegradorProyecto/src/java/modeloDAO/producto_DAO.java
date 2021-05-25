@@ -44,7 +44,7 @@ public class producto_DAO implements int_producto{
             String sql="update producto set "
                     +"id_subcategoria="+p.getSubcategoria()+", "
                     +"nombre='"+p.getNombre()+"', "
-                    +"precio="+p.getPrecio()+","
+                    +"precio="+p.getPrecio()+", "
                     +"stock="+p.getStock()+" where id="+p.getId();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -73,14 +73,14 @@ public class producto_DAO implements int_producto{
     public producto listarUnProducto(int id) {
         try {
             String sql="select id,nombre_sub,nombre,precio,stock from producto,subcategoria"
-                    +"where producto.id_subcategoria=subcategoria.id and producto="+id;
+                    +" where producto.id_subcategoria=subcategoria.id_sub and producto.id="+id;
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
            while(rs.next()){
                p =  new producto();
                p.setId(rs.getInt("id"));
-               p.setSubcategoria(rs.getInt("nombre_sub"));
+               p.setNom_sub(rs.getString("nombre_sub"));
                p.setNombre(rs.getString("nombre"));
                p.setPrecio(rs.getDouble("precio"));
                p.setStock(rs.getInt("stock"));
@@ -97,17 +97,18 @@ public class producto_DAO implements int_producto{
     public ArrayList<producto> listarTodosProducto() {
          try {
             String sql="select id,nombre_sub,nombre,precio,stock from producto,subcategoria"
-                    +"where producto.id_subcategoria=subcategoria.id";
+                    +" where producto.id_subcategoria=subcategoria.id_sub";
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
            while(rs.next()){
                p =  new producto();
                p.setId(rs.getInt("id"));
-               p.setSubcategoria(rs.getInt("nombre_sub"));
+               p.setNom_sub(rs.getString("nombre_sub"));
                p.setNombre(rs.getString("nombre"));
                p.setPrecio(rs.getDouble("precio"));
                p.setStock(rs.getInt("stock"));
+               lista.add(p);
            }
             
         } catch (SQLException ex) {

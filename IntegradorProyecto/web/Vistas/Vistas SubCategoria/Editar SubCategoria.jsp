@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -74,14 +75,14 @@
                 <label>Categoria</label>
                 <select class="form-control" name="categoria">
                     <c:forEach var="liscatPro" items="${lista}">
-                        <c:if test="${liscatPro.getNombre().equalsIgnoreCase(SubCatPro.getCategoria())}">
-                            <option value="${liscatPro.getId()}" selected="${SubCatPro.getCategoria()}">${liscatPro.getNombre()}</option>                        
+                        <c:if test="${liscatPro.getNombre().equalsIgnoreCase(SubCatPro.getNombre_cat())}">
+                            <option value="${liscatPro.getCodigo()}" selected="${SubCatPro.getNombre_cat()}">${liscatPro.getNombre()}</option>                        
                         </c:if>
-                        <option value="${liscatPro.getId()}">${liscatPro.getNombre()}</option>
+                        <option value="${liscatPro.getCodigo()}">${liscatPro.getNombre()}</option>
                     </c:forEach>
                 </select><br> 
                 <label>Nombre</label>
-                <input class="form-control" type="text" name="costo" value="${SubCatPro.getNombre()}"><br>
+                <input class="form-control" type="text" name="nombre" value="${SubCatPro.getNombre()}"><br>
                 <input class="btn btn-outline-primary" type="submit" name="accion" value="Editar subcategoria">
             </form>
         </div>

@@ -296,7 +296,7 @@ public class Control extends HttpServlet {
             acceso=paginaAgregarProducto;
         }
         
-        if(action.equalsIgnoreCase("Agregar Produto")){//revisado
+        if(action.equalsIgnoreCase("Agregar Producto")){//revisado
             //int cod = Integer.parseInt(request.getParameter("codigo"));
             int codSubCat=Integer.parseInt(request.getParameter("subcategoria"));
             String nom = request.getParameter("nombre");
@@ -316,11 +316,11 @@ public class Control extends HttpServlet {
             p=dao_Pro.listarUnProducto(cod);
             lissubCat=dao_SubCatPro.listarTodosSubCat();
             request.setAttribute("lista", lissubCat);
-            request.setAttribute("prod", p);
+            request.setAttribute("lisPro", p);
             acceso=paginaEditarProducto;
         }
         
-        if(action.equalsIgnoreCase("Editar producto")){//revisado
+        if(action.equalsIgnoreCase("Editar Producto")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             int codSubCat=Integer.parseInt(request.getParameter("subcat"));
             String nom = request.getParameter("nombre");
@@ -331,8 +331,8 @@ public class Control extends HttpServlet {
             p.setNombre(nom);
             p.setPrecio(precio);
             p.setStock(stock);
-            dao_Pro.agregar(p);
-            action="listarDistrito";
+            dao_Pro.editar(p);
+            action="listarProducto";
         }
                 
         if(action.equalsIgnoreCase("eliminarProducto")){//revisado
@@ -419,7 +419,7 @@ public class Control extends HttpServlet {
             sc.setId(cod);
             sc.setCategoria(cat);
             sc.setNombre(nom);
-            dao_SubCatPro.agregar(sc);
+            dao_SubCatPro.editar(sc);
             action="listarSubCatPro";
         }
                 

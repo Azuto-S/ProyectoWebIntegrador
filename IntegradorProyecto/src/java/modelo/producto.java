@@ -8,7 +8,8 @@ public class producto {
    private String nombre;
    private double precio;
    private int stock;
-
+   private String nom_sub;
+   
     public int getId() {
         return id;
     }
@@ -47,6 +48,14 @@ public class producto {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getNom_sub() {
+        return nom_sub;
+    }
+
+    public void setNom_sub(String nom_sub) {
+        this.nom_sub = nom_sub;
     }
    
 }

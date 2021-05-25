@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -71,22 +71,23 @@
         <div class="container mt-3 mb-3">
             <h1>Editar producto</h1>
             <form action="Control" method="post">
-                <label>Sub categoria</label>
+                <input type="hidden" name="codigo" value="${lisPro.getId()}"><br>
+                <label>Sub-Categoria</label>
                 <select class="form-control" name="subcat">
                     <c:forEach var="lissubCat" items="${lista}">
-                        <c:if test="${lissubCat.getNombre().equalsIgnoreCase(cli.getNombre())}">
-                            <option value="${lissubCat.getCodigo()}" selected="${prod.getSubcategoria()}">${lissubCat.getNombre()}</option>                        
+                        <c:if test="${lissubCat.getNombre().equalsIgnoreCase(lisPro.getNom_sub())}">
+                            <option value="${lissubCat.getId()}" selected="${lisPro.getNom_sub()}">${lissubCat.getNombre()}</option>                        
                         </c:if>
-                        <option value="${lissubCat.getCodigo()}">${lissubCat.getNombre()}</option>
+                        <option value="${lissubCat.getId()}">${lissubCat.getNombre()}</option>
                     </c:forEach>
                 </select><br> 
                 <label>Nombre</label>
-                <input class="form-control" type="text" name="nombre" value="${prop.getNombre()}"><br>
+                <input class="form-control" type="text" name="nombre" value="${lisPro.getNombre()}"><br>
                 <label>Precio</label>
-                <input class="form-control" type="text" name="precio" value="${pro.getPrecio()}"><br>
+                <input class="form-control" type="text" name="precio" value="${lisPro.getPrecio()}"><br>
                 <label>Stock</label>
-                <input class="form-control" type="text" name="stock" value="${pro.getStock()}"><br>
-                <input class="btn btn-outline-primary" type="submit" name="accion" value="Editar producto">
+                <input class="form-control" type="text" name="stock" value="${lisPro.getStock()}"><br>
+                <input class="btn btn-outline-primary" type="submit" name="accion" value="Editar Producto">
             </form>
         </div>
                 </div>

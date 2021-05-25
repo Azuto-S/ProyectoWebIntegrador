@@ -41,7 +41,7 @@ public class subCatProducto_DAO implements int_subCatProducto{
          try {
             String sql="update subcategoria set "
                     +"id_categoria="+sc.getCategoria()+", "
-                    +"nombre_sub='"+sc.getNombre()+"' where id="+sc.getId();
+                    +"nombre_sub='"+sc.getNombre()+"' where id_sub="+sc.getId();
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -54,7 +54,7 @@ public class subCatProducto_DAO implements int_subCatProducto{
     @Override
     public boolean eliminar(int cod) {
          try {
-            String sql="delete from subcategoria where id="+sc.getId();
+            String sql="delete from subcategoria where id_sub="+cod;
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -67,16 +67,17 @@ public class subCatProducto_DAO implements int_subCatProducto{
     @Override
     public subcategoria_producto listarUnaSubCat(int id) {
         try {
-            String sql="select id,nombre_cat,nombre_sub from subcategoria,categoria"
-                    +"where subcategoria.id_categoria = categoria.id and subcategoria.id="+id;
+            String sql="select id_sub,nombre_cat,nombre_sub from subcategoria,categoria "
+                    +"where subcategoria.id_categoria = categoria.id and subcategoria.id_sub="+id;
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 sc=new subcategoria_producto();
-                sc.setId(rs.getInt("id"));
-                sc.setCategoria(rs.getInt("nombre_cat"));
+                sc.setId(rs.getInt("id_sub"));
+                sc.setNombre_cat(rs.getString("nombre_cat"));
                 sc.setNombre(rs.getString("nombre_sub"));
+                
             }
         } catch (SQLException ex) {
             Logger.getLogger(subCatProducto_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,16 +88,18 @@ public class subCatProducto_DAO implements int_subCatProducto{
     @Override
     public ArrayList<subcategoria_producto> listarTodosSubCat() {
         try {
-            String sql="select id,nombre_cat,nombre_sub from subcategoria,categoria"
-                    +"where subcategoria.id_categoria = categoria.id";
+            String sql="select id_sub,nombre_sub,nombre_cat from subcategoria, categoria "
+                    + " where subcategoria.id_categoria = categoria.id";
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 sc=new subcategoria_producto();
-                sc.setId(rs.getInt("id"));
-                sc.setCategoria(rs.getInt("nombre_cat"));
+                sc.setId(rs.getInt("id_sub"));
                 sc.setNombre(rs.getString("nombre_sub"));
+                sc.setNombre_cat(rs.getString("nombre_cat"));
+                
+                lista.add(sc);
             }
         } catch (SQLException ex) {
             Logger.getLogger(subCatProducto_DAO.class.getName()).log(Level.SEVERE, null, ex);
