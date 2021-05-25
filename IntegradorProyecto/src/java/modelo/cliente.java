@@ -14,6 +14,15 @@ public class cliente {
     private int distrito;
     private String direccion;
     private String referencia;
+    String nom_dis;
+
+    public String getNom_dis() {
+        return nom_dis;
+    }
+
+    public void setNom_dis(String nom_dis) {
+        this.nom_dis = nom_dis;
+    }
 
     
     public int getDni() {

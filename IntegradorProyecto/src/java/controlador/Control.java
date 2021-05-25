@@ -170,6 +170,9 @@ public class Control extends HttpServlet {
             request.setAttribute("lista", liscli);
             acceso=paginaListarCliente;
         }
+        
+        
+        
         //tabla distrito
         if(action.equalsIgnoreCase("agregarDistrito")){//revisado
             acceso=paginaAgregarDistrito;

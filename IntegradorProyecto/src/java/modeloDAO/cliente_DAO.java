@@ -27,7 +27,7 @@ public class cliente_DAO implements int_cliente{
     public boolean agregar(cliente c) {
         
         try {
-            String sql="insert into cliente (id,nombre,ape_paterno,ape_materno,"
+            String sql="insert into cliente (dni,nombre,ape_paterno,ape_materno,"
                 + "sexo,telefono,correo,contrasena,id_distrito,direccion,referencia) values("+c.getDni()+
                 ",'"+c.getNombre()+"','"+c.getApe_paterno()+"','"+c.getApe_materno()+"','"+
                 c.getSexo()+"','"+c.getTelefono()+"','"+c.getCorreo()+"','"+c.getContrasena()+"',"+
@@ -85,7 +85,7 @@ public class cliente_DAO implements int_cliente{
     @Override
     public cliente listarUnCliente(int dni) {
         try {
-            String sql="selec dni,nombre,ape_paterno,ape_materno,"
+            String sql="select dni,nombre,ape_paterno,ape_materno,"
                 + "sexo,telefono,correo,contrasena,nom_dis,direccion,referencia from cliente, distrito "
                  +  "where cliente.id_distrito = distrito.id and cliente.id="+dni;
             con = cn.getConnection();
@@ -93,7 +93,7 @@ public class cliente_DAO implements int_cliente{
             rs = ps.executeQuery();
             while(rs.next()){
                 c= new cliente();
-                c.setDni(rs.getInt("id"));
+                c.setDni(rs.getInt("dni"));
                 c.setNombre(rs.getString("nombre"));
                 c.setApe_materno(rs.getString("ape_paterno"));
                 c.setApe_paterno(rs.getString("ape_materno"));
@@ -101,7 +101,7 @@ public class cliente_DAO implements int_cliente{
                 c.setTelefono(rs.getString("telefono"));
                 c.setCorreo(rs.getString("correo"));
                 c.setContrasena(rs.getString("contrasena"));
-                c.setDistrito(rs.getInt("nom_dis"));
+                c.setNom_dis(rs.getString("nom_dis"));
                 c.setDireccion(rs.getString("direccion"));
                 c.setReferencia(rs.getString("referencia"));
             }
@@ -115,16 +115,15 @@ public class cliente_DAO implements int_cliente{
     @Override
     public ArrayList<cliente> listarTodosClientes() {
         try {
-            String sql="selec nombre,ape_paterno,ape_materno,"
+            String sql="select dni,nombre,ape_paterno,ape_materno,"
                 + "sexo,telefono,correo,contrasena,nom_dis,direccion,referencia from cliente, distrito "
-                 +  "where cliente.id_distrito = distrito.id";
+                + " where cliente.id_distrito = distrito.id";
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 c=new cliente();
-                c= new cliente();
-                c.setDni(rs.getInt("id"));
+                c.setDni(rs.getInt("dni"));
                 c.setNombre(rs.getString("nombre"));
                 c.setApe_materno(rs.getString("ape_paterno"));
                 c.setApe_paterno(rs.getString("ape_materno"));
@@ -132,9 +131,10 @@ public class cliente_DAO implements int_cliente{
                 c.setTelefono(rs.getString("telefono"));
                 c.setCorreo(rs.getString("correo"));
                 c.setContrasena(rs.getString("contrasena"));
-                c.setDistrito(rs.getInt("nom_dis"));
+                c.setNom_dis(rs.getString("nom_dis"));
                 c.setDireccion(rs.getString("direccion"));
                 c.setReferencia(rs.getString("referencia"));
+                lista.add(c);
             }
         } catch (SQLException ex) {
             Logger.getLogger(cliente_DAO.class.getName()).log(Level.SEVERE, null, ex);

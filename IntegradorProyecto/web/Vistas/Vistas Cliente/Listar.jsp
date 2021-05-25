@@ -3,7 +3,10 @@
     Created on : 23/05/2021, 10:09:47 PM
     Author     : Gabriel
 --%>
-
+<%@page import="java.util.List"%>
+<%@page import="modeloDAO.cliente_DAO"%>
+<%@page import="modelo.cliente"%>
+<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -99,7 +102,7 @@
                         <td>${liscli.getSexo()}</td>
                         <td>${liscli.getTelefono()}</td>
                         <td>${liscli.getCorreo()}</td>
-                        <td>${liscli.getDistrito()}</td>
+                        <td>${liscli.getNom_dis()}</td>
                         <td>${liscli.getDireccion()}</td>
                         <td>${liscli.getReferencia()}</td> 
                         <td>
