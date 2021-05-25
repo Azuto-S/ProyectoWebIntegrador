@@ -32,33 +32,37 @@
                 </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.jsp">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="Control?accion=agregarCliente">Agregar</a> 
-                    <a class="dropdown-item" href="Control?accion=agregarCliente">Listar</a>
+                    <a class="dropdown-item" href="Control?accion=listarCliente">Listar</a>
                 </div>
               </li> 
                <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Producto</a> 
                       <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="Control?accion=agregarProducto">Agregar</a> 
-                    <a class="dropdown-item" href="Control?accion=agregarProducto">Listar</a>
+                    <a class="dropdown-item" href="Control?accion=listarProducto">Listar</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipo de Mercadería</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="Control?accion=agregarCategoría">Categoría</a> 
+                    <a class="dropdown-item" href="Control?accion=agregarCategoria">Agregar Categoría</a> 
+                    <a class="dropdown-item" href="Control?accion=listarCategoria">Listar Categoría</a>
                     <a class="dropdown-item" href="Control?accion=agregarSubCatPro">Subcategoria</a>
+                    <a class="dropdown-item" href="Control?accion=listarSubCatPro">Listar Subcategoria</a>
               </li> 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Funciones</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" href="Control?accion=agregarDistrito">Agregar Distrito</a>           
-                  <a class="dropdown-item" href="Control?accion=agregarTrabajador">Agregar Trabajador</a>    
+                  <a class="dropdown-item" href="Control?accion=agregarDistrito">Agregar Distrito</a>
+                  <a class="dropdown-item" href="Control?accion=listarDistrito">Listar Distrito</a>
+                  <a class="dropdown-item" href="Control?accion=agregarTrabajador">Agregar Trabajador</a>
+                  <a class="dropdown-item" href="Control?accion=listarTrabajador">Listar Trabajador</a>
                 </div>
               </li>
               <li class="nav-item">

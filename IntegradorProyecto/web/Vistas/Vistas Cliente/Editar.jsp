@@ -5,40 +5,108 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <form action="Control" method="post">
-            <label>DNI</label>
-            <input type="hidden" name="dni" value="${cli.getDni()}"><br>
-            <label>Nombre</label>
-            <input type="text" name="nombre" value="${cli.getNombre()}"><br>
-            <label>Apellido Paterno</label>
-            <input type="text" name="ape_paterno" value="${cli.getApe_paterno()}"><br>
-            <label>Apellido Materno</label>
-            <input type="text" name="ape_paterno" value="${cli.getApe_materno()}"><br>
-            <label>sexo</label>
-            <input type="text" name="ape_paterno" value="${cli.getSexo()}"><br>
-            <label>Telefono</label>
-            <input type="text" name="telefono" value="${cli.getTelefono()}"><br>
-            <label>Correo</label>
-            <input type="text" name="correo" value="${cli.getCorreo()}"><br>
-            <label>Contraseña</label>
-            <input type="text" name="correo" value="${cli.getContrasena()}"><br>
-            <label>Distrito</label>
-            <select name="distrito">
-            <c:forEach var="lisDis" items="${lista}">
-                    <c:if test="${lisDis.getNombre().equalsIgnoreCase(cli.getDistrito())}">
-                        <option value="${lisDis.getDni()}" selected="${cli.getDistrito()}">${lisDis.getNombre()}</option>                        
-                    </c:if>
-                    <option value="${lisDis.getId()}">${lisDis.getNombre()}</option>
-                </c:forEach>
-            </select><br> 
-            <label>Direccion</label>
-            <input type="text" name="direccion" value="${cli.getDireccion()}"><br>
-            <label>Referencia</label>
-            <input type="text" name="direccion" value="${cli.getReferencia()}"><br>
-            <input type="submit" name="accion" value="Actualizar Cliente">  
-        </form>
+        
+        <div class="container">
+
+      <header class="masthead">
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav text-md-center nav-justified w-100">
+              <li class="nav-item">
+                <a href="#">
+                  <img src="">
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="index.jsp">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="Control?accion=agregarCliente">Agregar</a> 
+                    <a class="dropdown-item" href="Control?accion=listarCliente">Listar</a>
+                </div>
+              </li> 
+               <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Producto</a> 
+                      <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="Control?accion=agregarProducto">Agregar</a> 
+                    <a class="dropdown-item" href="Control?accion=listarProducto">Listar</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipo de Mercadería</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="Control?accion=agregarCategoria">Agregar Categoría</a> 
+                    <a class="dropdown-item" href="Control?accion=listarCategoria">Listar Categoría</a>
+                    <a class="dropdown-item" href="Control?accion=agregarSubCatPro">Subcategoria</a>
+                    <a class="dropdown-item" href="Control?accion=listarSubCatPro">Listar Subcategoria</a>
+              </li> 
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Funciones</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" href="Control?accion=agregarDistrito">Agregar Distrito</a>
+                  <a class="dropdown-item" href="Control?accion=listarDistrito">Listar Distrito</a>
+                  <a class="dropdown-item" href="Control?accion=agregarTrabajador">Agregar Trabajador</a>
+                  <a class="dropdown-item" href="Control?accion=listarTrabajador">Listar Trabajador</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Login.jsp" target="_blank">Iniciar Sesión</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Mi Carrito</a>
+              </li>
+              
+            </ul>
+          </div>
+        </nav>
+      </header>
+        <div class="container mt-3 mb-3">
+            <form action="Control" method="post">
+                <label>DNI</label>
+                <input class="form-control" type="hidden" name="dni" value="${cli.getDni()}"><br>
+                <label>Nombre</label>
+                <input class="form-control" type="text" name="nombre" value="${cli.getNombre()}"><br>
+                <label>Apellido Paterno</label>
+                <input class="form-control" type="text" name="ape_paterno" value="${cli.getApe_paterno()}"><br>
+                <label>Apellido Materno</label>
+                <input class="form-control" type="text" name="ape_paterno" value="${cli.getApe_materno()}"><br>
+                <label>sexo</label>
+                <input class="form-control" type="text" name="ape_paterno" value="${cli.getSexo()}"><br>
+                <label>Telefono</label>
+                <input class="form-control" type="text" name="telefono" value="${cli.getTelefono()}"><br>
+                <label>Correo</label>
+                <input class="form-control" type="text" name="correo" value="${cli.getCorreo()}"><br>
+                <label>Contraseña</label>
+                <input class="form-control" type="text" name="correo" value="${cli.getContrasena()}"><br>
+                <label>Distrito</label>
+                <select class="form-control" name="distrito">
+                    <c:forEach var="lisDis" items="${lista}">
+                        <c:if test="${lisDis.getNombre().equalsIgnoreCase(cli.getDistrito())}">
+                            <option value="${lisDis.getDni()}" selected="${cli.getDistrito()}">${lisDis.getNombre()}</option>                        
+                        </c:if>
+                        <option value="${lisDis.getId()}">${lisDis.getNombre()}</option>
+                    </c:forEach>
+                </select><br> 
+                <label>Direccion</label>
+                <input class="form-control" type="text" name="direccion" value="${cli.getDireccion()}"><br>
+                <label>Referencia</label>
+                <input class="form-control" type="text" name="direccion" value="${cli.getReferencia()}"><br>
+                <input class="btn btn-outline-primary" type="submit" name="accion" value="Actualizar Cliente">  
+            </form>
+        </div>
+        </div>
+        <script src="../../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script src="../../js/bootstrap.js" type="text/javascript"></script>
+
     </body>
 </html>
 

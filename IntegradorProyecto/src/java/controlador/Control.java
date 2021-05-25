@@ -66,9 +66,9 @@ public class Control extends HttpServlet {
         String paginaListarSubCatProducto = "Vistas/Vistas SubCategoria/Listar.jsp";
         String paginaEditarSubCatProducto = "Vistas/Vistas SubCategoria/Editar SubCategoria.jsp";
         //producto
-        String paginaAgregarProducto = "Vistas/Vistas Producto/Agregar_Producto.jsp";
-        String paginaListarProducto = "Vistas/Vistas Producto/Listar.jsp";
-        String paginaEditarProducto = "Vistas/Vistas Producto/Editar.jsp";
+        String paginaAgregarProducto = "Vistas/Vistas producto/Agregar_Producto.jsp";
+        String paginaListarProducto = "Vistas/Vistas producto/Listar.jsp";
+        String paginaEditarProducto = "Vistas/Vistas producto/Editar.jsp";
         
         
         String action = request.getParameter("accion");
@@ -348,7 +348,7 @@ public class Control extends HttpServlet {
         }
         
         //tabla CategoriaProducto
-        if(action.equalsIgnoreCase("agregarCategoriaProducto")){
+        if(action.equalsIgnoreCase("agregarCategoria")){
             acceso=paginaAgregarCategoriaProducto;
         }
         
@@ -356,7 +356,7 @@ public class Control extends HttpServlet {
             String nom = request.getParameter("nombre");
             cp.setNombre(nom);
             dao_CatPro.agregar(cp);
-            action="listarCategoriaProducto";
+            action="listarCategoria";
         }
         
         if(action.equalsIgnoreCase("editarCategoria")){
@@ -391,7 +391,7 @@ public class Control extends HttpServlet {
         if(action.equalsIgnoreCase("agregarSubCatPro")){//revisadp
             liscatPro=dao_CatPro.listarTodosCategoria();
             request.setAttribute("lista", liscatPro);
-            acceso=paginaAgregarCategoriaProducto;
+            acceso=paginaAgregarSubCatProducto;
         }
         
         if(action.equalsIgnoreCase("Agregar SubCatPro")){//revisado
