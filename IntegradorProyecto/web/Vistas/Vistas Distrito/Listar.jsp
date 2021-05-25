@@ -17,15 +17,16 @@
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Costo de envio</th>
+                <th>Accion</th>
             </tr>           
-            <c:forEach var="lis" items="${lista}">
+            <c:forEach var="lisDis" items="${lista}">
             <tr>
-                <td>${lis.getId()}</td>
-                <td>${lis.getNombre()}</td>
-                <td>${lis.getCosto()}</td>
+                <td>${lisDis.getId()}</td>
+                <td>${lisDis.getNombre()}</td>
+                <td>${lisDis.getCosto()}</td>
                 <td>
-                    <a href="Control?accion=editarDistrito&codigo=${lis.getId()}">Editar</a>
-                    <a href="Control?accion=eliminarDistrito&codigo=${lis.getId()}">Eliminar</a>
+                    <a href="Control?accion=editarDistrito&codigo=${lisDis.getId()}">Editar</a>
+                    <a href="Control?accion=eliminarDistrito&codigo=${lisDis.getId()}">Eliminar</a>
                 </td>
             </tr>
             </c:forEach>

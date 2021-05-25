@@ -16,14 +16,15 @@
             <tr>
                 <th>Categoria</th>
                 <th>Nombre</th>
+                <th>Accion</th>
             </tr>           
-            <c:forEach var="lis" items="${lista}">
+            <c:forEach var="lissubCat" items="${lista}">
             <tr>
-                <td>${lis.getCategoria()}</td>
-                <td>${lis.getNombre()}</td>
+                <td>${lissubCat.getCategoria()}</td>
+                <td>${lissubCat.getNombre()}</td>
                 <td>
-                    <a href="Control?accion=editarDistrito&codigo=${lis.getId()}">Editar</a>
-                    <a href="Control?accion=eliminarDistrito&codigo=${lis.getId()}">Eliminar</a>
+                    <a href="Control?accion=editarSubCatPro&codigo=${lissubCat.getId()}">Editar</a>
+                    <a href="Control?accion=eliminarSubCatPro&codigo=${lissubCat.getId()}">Eliminar</a>
                 </td>
             </tr>
             </c:forEach>

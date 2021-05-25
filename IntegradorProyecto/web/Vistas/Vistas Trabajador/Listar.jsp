@@ -21,21 +21,21 @@
                 <th>Contraseña</th>
                 <th>Direccion</th>
             </tr>
-            <c:forEach var="lis" items="${lista}">
+            <c:forEach var="listra" items="${lista}">
             <tr>                
-                <td>${lis.getDni()}</td>
-                <td>${lis.getTipo()}</td>
-                <td>${lis.getNombre()}</td>
-                <td>${lis.getApe_paterno()}</td>
-                <td>${lis.getApe_materno()}</td>
-                <td>${lis.getSexo()}</td>
-                <td>${lis.getTelefono()}</td>
-                <td>${lis.getCorreo()}</td>
-                <td>${lis.getContrasena()}</td>
-                <td>${lis.getDireccion()}</td>
+                <td>${listra.getDni()}</td>
+                <td>${listra.getTipo()}</td>
+                <td>${listra.getNombre()}</td>
+                <td>${listra.getApe_paterno()}</td>
+                <td>${listra.getApe_materno()}</td>
+                <td>${lista.getSexo()}</td>
+                <td>${listra.getTelefono()}</td>
+                <td>${listra.getCorreo()}</td>
+                <td>${listra.getContrasena()}</td>
+                <td>${listra.getDireccion()}</td>
                 <td>
-                    <a href="Control?accion=EditarCliente&dni=${lis.getDni()}">Editar</a>
-                    <a href="Control?accion=EliminarCliente&dni=${lis.getDni()}">Eliminar</a>
+                    <a href="Control?accion=EditarTrabajador&dni=${listra.getDni()}">Editar</a>
+                    <a href="Control?accion=EliminarTrabajador&dni=${listra.getDni()}">Eliminar</a>
                 </td>
             </tr>
             </c:forEach>

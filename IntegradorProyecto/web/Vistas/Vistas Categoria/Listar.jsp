@@ -14,16 +14,18 @@
         <h1>Listar categoria producto</h1>  
         <table>
             <tr>
-                <th>Nombre</th>
                 <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Accion</th>
             </tr>           
-            <c:forEach var="lis" items="${lista}">
+            <c:forEach var="liscatPro" items="${lista}">
             <tr>
-                <td>${lis.getNombre()}</td>
-                <td>${lis.getCodigo()}</td>
+                <td>${liscatPro.getId()}</td>
+                <td>${liscatPro.getNombre()}</td>
+                
                 <td>
-                    <a href="Control?accion=editarDistrito&codigo=${lis.getId()}">Editar</a>
-                    <a href="Control?accion=eliminarDistrito&codigo=${lis.getId()}">Eliminar</a>
+                    <a href="Control?accion=editarCategoria&codigo=${liscatPro.getId()}">Editar</a>
+                    <a href="Control?accion=eliminarCategoria&codigo=${liscatPro.getId()}">Eliminar</a>
                 </td>
             </tr>
             </c:forEach>

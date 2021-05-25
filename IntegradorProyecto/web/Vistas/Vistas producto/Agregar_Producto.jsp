@@ -14,8 +14,8 @@
         <form action="Control" method="post">
             <label>Sub Categoria</label>
             <select name="subcategoria">
-                <c:forEach var="lis" items="${lista}">
-                    <option value="${lis.getId()}">${lis.getSubcategoria()}</option>
+                <c:forEach var="lissubCat" items="${lista}">
+                    <option value="${lissubCat.getId()}">${lissubCat.getNombre()}</option>
                 </c:forEach>
             </select><br> 
             <label>Nombre</label>
@@ -24,11 +24,6 @@
             <input type="text" name="precio"><br>
             <label>Stock</label>
             <input type="text" name="stock"><br>
-            <select name="nombre">
-                <c:forEach var="lis" items="${lista}">
-                    <option value="${lis.getNombre()}">${lis.getPrecio()}</option>
-                </c:forEach>
-            </select><br> 
             <input type="submit" name="accion" value="Agregar Producto">  
         </form>
     </body>

@@ -8,12 +8,8 @@
     <body>
         <h1>Agregar distrito</h1>
         <form action="Control" method="post">
-            Distrito:
-         <select name="distrito">
-                <c:forEach var="lis" items="${lista}">
-                    <option value="${lis.getId()}">${lis.getCosto()}</option>
-                </c:forEach>
-            </select><br>  
+            Nombre:
+            <input type="text" name="nombre"><br>
             Costo:
             <input type="text" name="costo"><br>
             

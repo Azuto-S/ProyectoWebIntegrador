@@ -10,13 +10,20 @@
         <h1>Editar producto</h1>
         <form action="Control" method="post">
             <label>Sub categoria</label>
-            <input type="text" name="subcategoria" value="${p.getSubcategoria()}"><br>
+            <select name="subcat">
+                <c:forEach var="lissubCat" items="${lista}">
+                    <c:if test="${lissubCat.getNombre().equalsIgnoreCase(cli.getNombre())}">
+                        <option value="${lissubCat.getCodigo()}" selected="${prod.getSubcategoria()}">${lissubCat.getNombre()}</option>                        
+                    </c:if>
+                    <option value="${lissubCat.getCodigo()}">${lissubCat.getNombre()}</option>
+                </c:forEach>
+            </select><br> 
             <label>Nombre</label>
-            <input type="text" name="nombre" value="${p.getNombre()}"><br>
+            <input type="text" name="nombre" value="${prop.getNombre()}"><br>
             <label>Precio</label>
-            <input type="text" name="precio" value="${p.getPrecio()}"><br>
+            <input type="text" name="precio" value="${pro.getPrecio()}"><br>
             <label>Stock</label>
-            <input type="text" name="stock" value="${p.getStock()}"><br>
+            <input type="text" name="stock" value="${pro.getStock()}"><br>
             <input type="submit" name="accion" value="Editar producto">
         </form>
     </body>

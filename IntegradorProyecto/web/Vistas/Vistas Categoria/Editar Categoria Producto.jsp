@@ -8,10 +8,10 @@
     <body>
         <h1>Editar categoria producto</h1>
         <form action="Control" method="post">
+            
+            <input type="hidden" name="codigo" value="${catpro.getCodigo()}"><br>
             <label>Nombre</label>
-            <input type="text" name="nombre" value="${dist.getNombre()}"><br>
-            <label>Codigo</label>
-            <input type="text" name="costo" value="${dist.getCodigo()}"><br>
+            <input type="text" name="nombre" value="${catpro.getNombre()}"><br>
             <input type="submit" name="accion" value="Editar categoria">
         </form>
     </body>

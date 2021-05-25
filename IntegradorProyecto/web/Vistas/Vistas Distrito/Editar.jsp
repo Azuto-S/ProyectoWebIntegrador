@@ -8,6 +8,7 @@
     <body>
         <h1>Editar distrito</h1>
         <form action="Control" method="post">
+            <input type="hidden" name="codigo" value="${dist.getId()}"><br>
             <label>Nombre de distrito</label>
             <input type="text" name="nombre" value="${dist.getNombre()}"><br>
             <label>Costo de Envio</label>

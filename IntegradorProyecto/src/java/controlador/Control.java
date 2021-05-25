@@ -93,12 +93,12 @@ public class Control extends HttpServlet {
         subCatProducto_DAO dao_SubCatPro = new subCatProducto_DAO();
         
         //tabla cliente
-        if(action.equalsIgnoreCase("agregarCliente")){
+        if(action.equalsIgnoreCase("agregarCliente")){//revisado
             lisDis=dao_Dis.listarTodosDistritos();
             request.setAttribute("lista", lisDis);
             acceso=paginaAgregarCliente;
         }
-        if(action.equalsIgnoreCase("Agregar Cliente")){
+        if(action.equalsIgnoreCase("Agregar Cliente")){//revisado
             int dni = Integer.parseInt(request.getParameter("dni"));
             String nom = request.getParameter("nombre");
             String app = request.getParameter("ape_paterno");
@@ -124,7 +124,7 @@ public class Control extends HttpServlet {
             dao_Cli.agregar(c);
             action="listarCliente";
         }
-        if(action.equalsIgnoreCase("EditarCliente")){
+        if(action.equalsIgnoreCase("EditarCliente")){//revisado
             int dni = Integer.parseInt(request.getParameter("dni"));
             c=dao_Cli.listarUnCliente(dni);
             liscli=dao_Cli.listarTodosClientes();
@@ -132,7 +132,7 @@ public class Control extends HttpServlet {
             request.setAttribute("cli", c);
             acceso=paginaEditarCliente;
         }
-        if(action.equalsIgnoreCase("Actualizar Cliente")){
+        if(action.equalsIgnoreCase("Actualizar Cliente")){//revisado
             int dni = Integer.parseInt(request.getParameter("dni"));
             String nom = request.getParameter("nombre");
             String app = request.getParameter("ape_paterno");
@@ -160,40 +160,38 @@ public class Control extends HttpServlet {
             action="listarCliente";
             
         }
-        if(action.equalsIgnoreCase("EliminarCliente")){
+        if(action.equalsIgnoreCase("EliminarCliente")){//revisado
             int dni = Integer.parseInt(request.getParameter("dni"));
             dao_Cli.eliminar(dni);
             action="listarCliente";
         }
-        if(action.equalsIgnoreCase("listarCliente")){
+        if(action.equalsIgnoreCase("listarCliente")){//revisado
             liscli=dao_Cli.listarTodosClientes();
             request.setAttribute("lista", liscli);
             acceso=paginaListarCliente;
         }
         //tabla distrito
-        if(action.equalsIgnoreCase("agregarDistrito")){
+        if(action.equalsIgnoreCase("agregarDistrito")){//revisado
             acceso=paginaAgregarDistrito;
         }
         
-        if(action.equalsIgnoreCase("Agregar distrito")){
-            int cod = Integer.parseInt(request.getParameter("codigo"));
+        if(action.equalsIgnoreCase("Agregar distrito")){//revisado
             String nom = request.getParameter("nombre");
             double cos = Double.parseDouble(request.getParameter("costo"));
-            d.setId(cod);
             d.setNombre(nom);
             d.setCosto(cos);
             dao_Dis.agregar(d);
             action="listarDistrito";
         }
         
-        if(action.equalsIgnoreCase("editarDistrito")){
+        if(action.equalsIgnoreCase("editarDistrito")){//Revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             d=dao_Dis.listarUnDistrito(cod);
             request.setAttribute("dist", d);
             acceso=paginaEditarDistrito;
         }
         
-        if(action.equalsIgnoreCase("Editar distrito")){
+        if(action.equalsIgnoreCase("Editar distrito")){//Revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             String nom = request.getParameter("nombre");    
             double cos = Double.parseDouble(request.getParameter("costo"));
@@ -204,25 +202,25 @@ public class Control extends HttpServlet {
             action="listarDistrito";
         }
                 
-        if(action.equalsIgnoreCase("eliminarDistrito")){
+        if(action.equalsIgnoreCase("eliminarDistrito")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             dao_Dis.eliminar(cod);
             action="listarDistrito";
         }
         
-        if(action.equalsIgnoreCase("listarDistrito")){
+        if(action.equalsIgnoreCase("listarDistrito")){//revisado
             lisDis=dao_Dis.listarTodosDistritos();
             request.setAttribute("lista", lisDis);
             acceso=paginaListarDistrito;
         }
         
         //tabla trabajador
-        if(action.equalsIgnoreCase("agregarTrabajador")){
+        if(action.equalsIgnoreCase("agregarTrabajador")){//revisado
             acceso=paginaAgregarTrabajador;
         }
         
-        if(action.equalsIgnoreCase("Agregar trabajador")){
-            int cod = Integer.parseInt(request.getParameter("codigo"));
+        if(action.equalsIgnoreCase("Agregar Trabajador")){//revisado
+            int cod = Integer.parseInt(request.getParameter("dni"));
             int tipo= Integer.parseInt(request.getParameter("tipo"));
             String nom = request.getParameter("nombre");
             String app = request.getParameter("ape_paterno");
@@ -247,15 +245,14 @@ public class Control extends HttpServlet {
             action="listarTrabajador";
         }
         
-        if(action.equalsIgnoreCase("editarTrabajador")){
+        if(action.equalsIgnoreCase("editarTrabajador")){//revisado
             int cod = Integer.parseInt(request.getParameter("dni"));
             t=dao_Tra.listarUnTrabajador(cod);
-            request.setAttribute("list", listra);
             request.setAttribute("tra", t);
             acceso=paginaEditarTrabajador;
         }
         
-        if(action.equalsIgnoreCase("Actualizar Trabajador")){
+        if(action.equalsIgnoreCase("Actualizar Trabajador")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             int tipo= Integer.parseInt(request.getParameter("tipo"));
             String nom = request.getParameter("nombre");
@@ -280,13 +277,13 @@ public class Control extends HttpServlet {
             action="listarTrabajador";
         }
                 
-        if(action.equalsIgnoreCase("eliminarTrabajador")){
+        if(action.equalsIgnoreCase("eliminarTrabajador")){//revisado
             int dni = Integer.parseInt(request.getParameter("codigo"));
             dao_Tra.eliminar(dni);
             action="listarTrabajador";
         }
         
-        if(action.equalsIgnoreCase("listarTrabajador")){
+        if(action.equalsIgnoreCase("listarTrabajador")){//revisado
             listra=dao_Tra.listarTodosTrabajadores();
             request.setAttribute("lista", listra);
             acceso=paginaListarTrabajador;
@@ -299,13 +296,13 @@ public class Control extends HttpServlet {
             acceso=paginaAgregarProducto;
         }
         
-        if(action.equalsIgnoreCase("Agregar produto")){
-            int cod = Integer.parseInt(request.getParameter("codigo"));
-            int codSubCat=Integer.parseInt(request.getParameter("subcat"));
+        if(action.equalsIgnoreCase("Agregar Produto")){//revisado
+            //int cod = Integer.parseInt(request.getParameter("codigo"));
+            int codSubCat=Integer.parseInt(request.getParameter("subcategoria"));
             String nom = request.getParameter("nombre");
             double precio=Double.parseDouble(request.getParameter("precio"));
             int stock=Integer.parseInt(request.getParameter("stock"));
-            p.setId(cod);
+            //p.setId(cod);
             p.setSubcategoria(codSubCat);
             p.setNombre(nom);
             p.setPrecio(precio);
@@ -314,7 +311,7 @@ public class Control extends HttpServlet {
             action="listarProducto";
         }
         
-        if(action.equalsIgnoreCase("editarProducto")){
+        if(action.equalsIgnoreCase("editarProducto")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             p=dao_Pro.listarUnProducto(cod);
             lissubCat=dao_SubCatPro.listarTodosSubCat();
@@ -323,7 +320,7 @@ public class Control extends HttpServlet {
             acceso=paginaEditarProducto;
         }
         
-        if(action.equalsIgnoreCase("Editar producto")){
+        if(action.equalsIgnoreCase("Editar producto")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             int codSubCat=Integer.parseInt(request.getParameter("subcat"));
             String nom = request.getParameter("nombre");
@@ -338,13 +335,13 @@ public class Control extends HttpServlet {
             action="listarDistrito";
         }
                 
-        if(action.equalsIgnoreCase("eliminarProducto")){
+        if(action.equalsIgnoreCase("eliminarProducto")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             dao_Pro.eliminar(cod);
             action="listarDistrito";
         }
         
-        if(action.equalsIgnoreCase("listarProducto")){
+        if(action.equalsIgnoreCase("listarProducto")){//revisado
             lisPro=dao_Pro.listarTodosProducto();
             request.setAttribute("lista", lisPro);
             acceso=paginaListarProducto;
@@ -355,23 +352,21 @@ public class Control extends HttpServlet {
             acceso=paginaAgregarCategoriaProducto;
         }
         
-        if(action.equalsIgnoreCase("Agregar CategoriaProducto")){
-            int cod = Integer.parseInt(request.getParameter("codigo"));
+        if(action.equalsIgnoreCase("Agregar categoria")){
             String nom = request.getParameter("nombre");
-            cp.setCodigo(cod);
             cp.setNombre(nom);
             dao_CatPro.agregar(cp);
             action="listarCategoriaProducto";
         }
         
-        if(action.equalsIgnoreCase("editarCategoriaProducto")){
+        if(action.equalsIgnoreCase("editarCategoria")){
             int cod = Integer.parseInt(request.getParameter("codigo"));
             cp=dao_CatPro.listarUnaCategoria(cod);
             request.setAttribute("catpro", cp);
             acceso=paginaEditarCategoriaProducto;
         }
         
-        if(action.equalsIgnoreCase("Editar CategoriaProducto")){
+        if(action.equalsIgnoreCase("Editar categoria")){
             int cod = Integer.parseInt(request.getParameter("codigo"));
             String nom = request.getParameter("nombre");
             cp.setCodigo(cod);
@@ -380,44 +375,44 @@ public class Control extends HttpServlet {
             action="listarCategoriaProducto";
         }
                 
-        if(action.equalsIgnoreCase("eliminarDistrito")){
+        if(action.equalsIgnoreCase("eliminarCategoria")){
             int cod = Integer.parseInt(request.getParameter("codigo"));
             dao_CatPro.eliminar(cod);
             action="listarCategoriaProducto";
         }
         
-        if(action.equalsIgnoreCase("listarDistrito")){
+        if(action.equalsIgnoreCase("listarCategoria")){
             liscatPro=dao_CatPro.listarTodosCategoria();
             request.setAttribute("lista", liscatPro);
             acceso=paginaListarCategoriaProducto;
         }
         
         //tabla subCategoriaProducto
-        if(action.equalsIgnoreCase("agregarSubCatPro")){
+        if(action.equalsIgnoreCase("agregarSubCatPro")){//revisadp
+            liscatPro=dao_CatPro.listarTodosCategoria();
+            request.setAttribute("lista", liscatPro);
             acceso=paginaAgregarCategoriaProducto;
         }
         
-        if(action.equalsIgnoreCase("Agregar subCatPro")){
-            int cod = Integer.parseInt(request.getParameter("codigo"));
+        if(action.equalsIgnoreCase("Agregar SubCatPro")){//revisado
             int cat = Integer.parseInt(request.getParameter("categoria"));
             String nom = request.getParameter("nombre");
-            sc.setId(cod);
             sc.setCategoria(cat);
             sc.setNombre(nom);
             dao_SubCatPro.agregar(sc);
             action="listarSubCatPro";
         }
         
-        if(action.equalsIgnoreCase("editarSubCatPro")){
+        if(action.equalsIgnoreCase("editarSubCatPro")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             sc=dao_SubCatPro.listarUnaSubCat(cod);
             liscatPro=dao_CatPro.listarTodosCategoria();
-            request.setAttribute("lista", lisPro);
+            request.setAttribute("lista", liscatPro);
             request.setAttribute("SubCatPro", sc);
             acceso=paginaEditarSubCatProducto;
         }
         
-        if(action.equalsIgnoreCase("Editar SubCatPro")){
+        if(action.equalsIgnoreCase("Editar subcategoria")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             int cat = Integer.parseInt(request.getParameter("categoria"));
             String nom = request.getParameter("nombre");
@@ -428,13 +423,13 @@ public class Control extends HttpServlet {
             action="listarSubCatPro";
         }
                 
-        if(action.equalsIgnoreCase("eliminarDistrito")){
+        if(action.equalsIgnoreCase("eliminarSubCatPro")){//revisado
             int cod = Integer.parseInt(request.getParameter("codigo"));
             dao_SubCatPro.eliminar(cod);
             action="listarSubCatPro";
         }
         
-        if(action.equalsIgnoreCase("listarSubCatPro")){
+        if(action.equalsIgnoreCase("listarSubCatPro")){//revisado
             lissubCat=dao_SubCatPro.listarTodosSubCat();
             request.setAttribute("lista", lissubCat);
             acceso=paginaListarSubCatProducto;

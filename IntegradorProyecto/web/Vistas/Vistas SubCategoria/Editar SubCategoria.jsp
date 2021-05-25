@@ -8,10 +8,18 @@
     <body>
         <h1>Editar categoria producto</h1>
         <form action="Control" method="post">
+            <input type="hidden" name="codigo" value="${SubCatPro.getId()}"><br>
             <label>Categoria</label>
-            <input type="text" name="nombre" value="${dist.getCategoria()}"><br>
+            <select name="categoria">
+                <c:forEach var="liscatPro" items="${lista}">
+                    <c:if test="${liscatPro.getNombre().equalsIgnoreCase(SubCatPro.getCategoria())}">
+                        <option value="${liscatPro.getId()}" selected="${SubCatPro.getCategoria()}">${liscatPro.getNombre()}</option>                        
+                    </c:if>
+                    <option value="${liscatPro.getId()}">${liscatPro.getNombre()}</option>
+                </c:forEach>
+            </select><br> 
             <label>Nombre</label>
-            <input type="text" name="costo" value="${dist.getNombre()}"><br>
+            <input type="text" name="costo" value="${SubCatPro.getNombre()}"><br>
             <input type="submit" name="accion" value="Editar subcategoria">
         </form>
     </body>

@@ -9,9 +9,9 @@
         <h1>Agregar Sub Categoria Producto</h1>
         <form action="Control" method="post">
             Categoria:
-         <select name="SubcCategoria">
-                <c:forEach var="lis" items="${lista}">
-                    <option value="${lis.getId()}">${lis.getCategoria()}</option>
+         <select name="categoria">
+                <c:forEach var="liscatPro" items="${lista}">
+                    <option value="${liscatPro.getId()}">${liscatPro.getNombre()}</option>
                 </c:forEach>
             </select><br>  
             Nombre:

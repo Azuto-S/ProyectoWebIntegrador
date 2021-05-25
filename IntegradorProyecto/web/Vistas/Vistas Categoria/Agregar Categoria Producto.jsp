@@ -9,10 +9,7 @@
         <h1>Agregar Categoria Producto</h1>
         <form action="Control" method="post">
             Nombre:
-         <select name="nombre">
-                <c:forEach var="lis" items="${lista}">
-                    <option value="${lis.getId()}">${lis.getNombre()}</option>
-                </c:forEach>
+            <input type="text" name="nombre"><br>
             </select><br>  
             Codigo:
             <input type="text" name="codigo"><br>

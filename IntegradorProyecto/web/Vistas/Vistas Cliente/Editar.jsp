@@ -26,11 +26,11 @@
             <input type="text" name="correo" value="${cli.getContrasena()}"><br>
             <label>Distrito</label>
             <select name="distrito">
-            <c:forEach var="lis" items="${lista}">
-                    <c:if test="${lis.getNombre().equalsIgnoreCase(cli.getDistrito())}">
-                        <option value="${lis.getDni()}" selected="${cli.getDistrito()}">${lis.getNombre()}</option>                        
+            <c:forEach var="lisDis" items="${lista}">
+                    <c:if test="${lisDis.getNombre().equalsIgnoreCase(cli.getDistrito())}">
+                        <option value="${lisDis.getDni()}" selected="${cli.getDistrito()}">${lisDis.getNombre()}</option>                        
                     </c:if>
-                    <option value="${lis.getDni()}">${lis.getNombre()}</option>
+                    <option value="${lisDis.getId()}">${lisDis.getNombre()}</option>
                 </c:forEach>
             </select><br> 
             <label>Direccion</label>

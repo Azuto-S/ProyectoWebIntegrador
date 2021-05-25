@@ -30,8 +30,8 @@
             <input type="text" name="contrasena"><br>
             <label>Distrito</label>
             <select name="distrito">
-                <c:forEach var="lis" items="${lista}">
-                    <option value="${lis.getDni()}">${lis.getNombre()}</option>
+                <c:forEach var="lisDis" items="${lista}">
+                    <option value="${lisDis.getId()}">${lisDis.getNombre()}</option>
                 </c:forEach>
             </select><br> 
             <label>Direccion</label>

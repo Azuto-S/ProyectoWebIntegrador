@@ -26,19 +26,20 @@
                 <th>Distrito</th>
                 <th>Direccion</th>
                 <th>Referencia</th>
+                <th>Accion</th>
             </tr>
-            <c:forEach var="lis" items="${lista}">
+            <c:forEach var="liscli" items="${lista}">
             <tr>                
-                <td>${lis.getDni()}</td>
-                <td>${lis.getNombre()}</td>
-                <td>${lis.getApe_paterno()}</td>
-                <td>${lis.getApe_materno()}</td>
-                <td>${lis.getSexo()}</td>
-                <td>${lis.getTelefono()}</td>
-                <td>${lis.getCorreo()}</td>
-                <td>${lis.getDistrito()}</td>
-                <td>${lis.getDireccion()}</td>
-                <td>${lis.getReferencia()}</td> 
+                <td>${liscli.getDni()}</td>
+                <td>${liscli.getNombre()}</td>
+                <td>${liscli.getApe_paterno()}</td>
+                <td>${liscli.getApe_materno()}</td>
+                <td>${liscli.getSexo()}</td>
+                <td>${liscli.getTelefono()}</td>
+                <td>${liscli.getCorreo()}</td>
+                <td>${liscli.getDistrito()}</td>
+                <td>${liscli.getDireccion()}</td>
+                <td>${liscli.getReferencia()}</td> 
                 <td>
                     <a href="Control?accion=EditarCliente&dni=${lis.getDni()}">Editar</a>
                     <a href="Control?accion=EliminarCliente&dni=${lis.getDni()}">Eliminar</a>

@@ -18,16 +18,17 @@
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Stock</th>
+                <th>Accion</th>
             </tr>           
-            <c:forEach var="lis" items="${lista}">
+            <c:forEach var="lisPro" items="${lista}">
             <tr>
-                <td>${lis.getSubcategoria()}</td>
-                <td>${lis.getNombre()}</td>
-                <td>${lis.getPrecio()}</td>
-                <td>${lis.getStock()}</td>
+                <td>${lisPro.getSubcategoria()}</td>
+                <td>${lisPro.getNombre()}</td>
+                <td>${lisPro.getPrecio()}</td>
+                <td>${lisPro.getStock()}</td>
                 <td>
-                    <a href="Control?accion=editarProducto&codigo=${lis.getNombre()}">Editar</a>
-                    <a href="Control?accion=eliminarProducto&codigo=${lis.getNombre()}">Eliminar</a>
+                    <a href="Control?accion=editarProducto&codigo=${lisPro.getId()}">Editar</a>
+                    <a href="Control?accion=eliminarProducto&codigo=${lisPro.getId()}">Eliminar</a>
                 </td>
             </tr>
             </c:forEach>
