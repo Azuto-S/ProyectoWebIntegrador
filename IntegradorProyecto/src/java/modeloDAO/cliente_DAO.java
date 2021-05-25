@@ -71,7 +71,7 @@ public class cliente_DAO implements int_cliente{
     @Override
     public boolean eliminar(int cod) {
         try {
-            String sql="delete from cliente where id="+c.getDni();
+            String sql="delete from cliente where dni="+cod;
             con = cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
