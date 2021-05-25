@@ -28,7 +28,7 @@ public class trabajador_DAO implements int_trabajador{
             String sql="insert into trabajador (id,id_tipotrabajador,nombre,ape_paterno,ape_materno,"
                 + "sexo,telefono,correo,contrasena,direccion) values("+t.getDni()+
                 ","+t.getTipo()+",'"+t.getNombre()+"','"+t.getApe_paterno()+"','"+t.getApe_materno()+"','"+
-                t.getSexo()+"','"+t.getTelefono()+"','"+t.getCorreo()+"','"+t.getContrasena()+"',"+
+                t.getSexo()+"','"+t.getTelefono()+"','"+t.getCorreo()+"','"+t.getContrasena()+"','"+
                 t.getDireccion()+"')";
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class trabajador_DAO implements int_trabajador{
     public boolean editar(trabajador t) {
          try {
             String sql="update trabajador set "
-                    +"id_tipotrabajador="+t.getTipo()+","
+                    +"id_tipotrabajador="+t.getTipo()+", "
                     +"nombre='"+t.getNombre()+"', "
                     +"ape_paterno='"+t.getApe_paterno()+"', "
                     +"ape_materno='"+t.getApe_materno()+"', "

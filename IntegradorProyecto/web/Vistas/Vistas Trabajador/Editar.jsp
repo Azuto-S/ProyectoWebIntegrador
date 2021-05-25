@@ -89,7 +89,7 @@
                 <input class="form-control" type="text" name="contrasena" value="${tra.getContrasena()}"><br>
                 <label>Direccion</label>
                 <input class="form-control" type="text" name="direccion" value="${tra.getDireccion()}"><br>
-                <input class="btn btn-outline-primary" type="submit" name="accion" value="Actualizar Cliente">  
+                <input class="btn btn-outline-primary" type="submit" name="accion" value="Actualizar Trabajador">  
             </form>
         </div>
                 </div>
