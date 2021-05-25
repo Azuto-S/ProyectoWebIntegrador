@@ -106,8 +106,8 @@
                         <td>${liscli.getDireccion()}</td>
                         <td>${liscli.getReferencia()}</td> 
                         <td>
-                            <a href="Control?accion=EditarCliente&dni=${lis.getDni()}">Editar</a>
-                            <a href="Control?accion=EliminarCliente&dni=${lis.getDni()}">Eliminar</a>
+                            <a href="Control?accion=EditarCliente&dni=${liscli.getDni()}">Editar</a>
+                            <a href="Control?accion=EliminarCliente&dni=${liscli.getDni()}">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

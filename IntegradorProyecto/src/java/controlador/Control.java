@@ -127,7 +127,7 @@ public class Control extends HttpServlet {
         if(action.equalsIgnoreCase("EditarCliente")){//revisado
             int dni = Integer.parseInt(request.getParameter("dni"));
             c=dao_Cli.listarUnCliente(dni);
-            liscli=dao_Cli.listarTodosClientes();
+            lisDis=dao_Dis.listarTodosDistritos();
             request.setAttribute("lista", lisDis);
             request.setAttribute("cli", c);
             acceso=paginaEditarCliente;

@@ -90,8 +90,8 @@
                 <label>Distrito</label>
                 <select class="form-control" name="distrito">
                     <c:forEach var="lisDis" items="${lista}">
-                        <c:if test="${lisDis.getNombre().equalsIgnoreCase(cli.getDistrito())}">
-                            <option value="${lisDis.getDni()}" selected="${cli.getDistrito()}">${lisDis.getNombre()}</option>                        
+                        <c:if test="${lisDis.getNombre().equalsIgnoreCase(cli.getNom_dis())}">
+                            <option value="${lisDis.getId()}" selected="${cli.getNom_dis()}">${lisDis.getNombre()}</option>                        
                         </c:if>
                         <option value="${lisDis.getId()}">${lisDis.getNombre()}</option>
                     </c:forEach>

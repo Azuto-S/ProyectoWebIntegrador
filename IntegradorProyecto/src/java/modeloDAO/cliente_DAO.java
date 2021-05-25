@@ -58,7 +58,7 @@ public class cliente_DAO implements int_cliente{
                     +"contrasena='"+c.getContrasena()+"', "
                     +"id_distrito="+c.getDistrito()+", "
                     +"direccion='"+c.getDireccion()+"', "
-                    +"referencia='"+c.getReferencia()+"' where id="+c.getDni();
+                    +"referencia='"+c.getReferencia()+"' where dni="+c.getDni();
             con= cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -87,7 +87,7 @@ public class cliente_DAO implements int_cliente{
         try {
             String sql="select dni,nombre,ape_paterno,ape_materno,"
                 + "sexo,telefono,correo,contrasena,nom_dis,direccion,referencia from cliente, distrito "
-                 +  "where cliente.id_distrito = distrito.id and cliente.id="+dni;
+                 +  "where cliente.id_distrito = distrito.id and cliente.dni="+dni;
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
