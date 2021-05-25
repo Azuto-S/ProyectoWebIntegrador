@@ -1,3 +1,8 @@
+<%@page import="java.util.List"%>
+<%@page import="modeloDAO.trabajador_DAO"%>
+<%@page import="modelo.trabajador"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -82,6 +87,7 @@
                     <th>Correo</th>
                     <th>Contraseña</th>
                     <th>Direccion</th>
+                    <th>Accion</th>
                 </tr>
                 <c:forEach var="listra" items="${lista}">
                     <tr>                
@@ -90,7 +96,7 @@
                         <td>${listra.getNombre()}</td>
                         <td>${listra.getApe_paterno()}</td>
                         <td>${listra.getApe_materno()}</td>
-                        <td>${lista.getSexo()}</td>
+                        <td>${listra.getSexo()}</td>
                         <td>${listra.getTelefono()}</td>
                         <td>${listra.getCorreo()}</td>
                         <td>${listra.getContrasena()}</td>

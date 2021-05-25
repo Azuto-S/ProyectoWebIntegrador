@@ -253,7 +253,7 @@ public class Control extends HttpServlet {
         }
         
         if(action.equalsIgnoreCase("Actualizar Trabajador")){//revisado
-            int cod = Integer.parseInt(request.getParameter("codigo"));
+            int cod = Integer.parseInt(request.getParameter("dni"));
             int tipo= Integer.parseInt(request.getParameter("tipo"));
             String nom = request.getParameter("nombre");
             String app = request.getParameter("ape_paterno");
@@ -278,7 +278,7 @@ public class Control extends HttpServlet {
         }
                 
         if(action.equalsIgnoreCase("eliminarTrabajador")){//revisado
-            int dni = Integer.parseInt(request.getParameter("codigo"));
+            int dni = Integer.parseInt(request.getParameter("dni"));
             dao_Tra.eliminar(dni);
             action="listarTrabajador";
         }
@@ -372,13 +372,13 @@ public class Control extends HttpServlet {
             cp.setCodigo(cod);
             cp.setNombre(nom);
             dao_CatPro.editar(cp);
-            action="listarCategoriaProducto";
+            action="listarCategoria";
         }
                 
         if(action.equalsIgnoreCase("eliminarCategoria")){
             int cod = Integer.parseInt(request.getParameter("codigo"));
             dao_CatPro.eliminar(cod);
-            action="listarCategoriaProducto";
+            action="listarCategoria";
         }
         
         if(action.equalsIgnoreCase("listarCategoria")){

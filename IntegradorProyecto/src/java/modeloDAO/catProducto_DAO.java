@@ -68,11 +68,11 @@ public class catProducto_DAO implements int_catProducto{
     @Override
     public categoria_producto listarUnaCategoria(int id) {
         try {
-            String sql="select id,nombre_cat from categoria"
-                    +"where categoria.id="+id;
+            String sql="select id,nombre_cat from categoria "
+                    +"where id="+id;
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
-            ps.executeUpdate();
+            rs=ps.executeQuery();
             while(rs.next()){
                 cp=new categoria_producto();
                 cp.setCodigo(rs.getInt("id"));
@@ -87,14 +87,15 @@ public class catProducto_DAO implements int_catProducto{
     @Override
     public ArrayList<categoria_producto> listarTodosCategoria() {
         try {
-            String sql="select id,nombre from categoria";
-            con=cn.getConnection();
-            ps=con.prepareStatement(sql);
-            ps.executeUpdate();
-            while(rs.next()){
+            String sql="select * from categoria";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){//
                 cp=new categoria_producto();
                 cp.setCodigo(rs.getInt("id"));
                 cp.setNombre(rs.getString("nombre_cat"));
+                lista.add(cp);
             }
         } catch (SQLException ex) {
             Logger.getLogger(catProducto_DAO.class.getName()).log(Level.SEVERE, null, ex);

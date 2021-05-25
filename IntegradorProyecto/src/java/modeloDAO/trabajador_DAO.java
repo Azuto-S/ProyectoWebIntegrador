@@ -42,8 +42,8 @@ public class trabajador_DAO implements int_trabajador{
     @Override
     public boolean editar(trabajador t) {
          try {
-            String sql="update cliente set "
-                    +"id_tipoTrabajador="+t.getTipo()+","
+            String sql="update trabajador set "
+                    +"id_tipotrabajador="+t.getTipo()+","
                     +"nombre='"+t.getNombre()+"', "
                     +"ape_paterno='"+t.getApe_paterno()+"', "
                     +"ape_materno='"+t.getApe_materno()+"', "
@@ -77,19 +77,19 @@ public class trabajador_DAO implements int_trabajador{
     @Override
     public trabajador listarUnTrabajador(int dni) {
         try {
-            String sql="selec id,nombre_tipo,nombre,ape_paterno,ape_materno,"
-                + "sexo,telefono,correo,contrasena,direccion from trabajador, tipotrabajador "
-                 +  "where trabajador.id_tipotrabajador=tipotrabajador.id and trabajador.id="+dni;
+            String sql="select id,id_tipotrabajador,nombre,ape_paterno,ape_materno,"
+                + "sexo,telefono,correo,contrasena,direccion from trabajador"
+                 +  " where id="+dni;
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 t= new trabajador();
                 t.setDni(rs.getInt("id"));
-                t.setTipo(rs.getInt("nombre_tipo"));
+                t.setTipo(rs.getInt("id_tipotrabajador"));
                 t.setNombre(rs.getString("nombre"));
-                t.setApe_materno(rs.getString("ape_paterno"));
-                t.setApe_paterno(rs.getString("ape_materno"));
+                t.setApe_paterno(rs.getString("ape_paterno"));
+                t.setApe_materno(rs.getString("ape_materno"));
                 t.setSexo(rs.getString("sexo"));
                 t.setTelefono(rs.getString("telefono"));
                 t.setCorreo(rs.getString("correo"));
@@ -105,16 +105,16 @@ public class trabajador_DAO implements int_trabajador{
     @Override
     public ArrayList<trabajador> listarTodosTrabajadores() {
         try {
-            String sql="selec id,nombre_tipo,nombre,ape_paterno,ape_materno,"
-                + "sexo,telefono,correo,contrasena,direccion from trabajador "
-                +"where trabajador.id_tipotrabajador=tipotrabajador.id";
+            String sql="select * from trabajador";
+                
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 t= new trabajador();
                 t.setDni(rs.getInt("id"));
-                t.setTipo(rs.getInt("nombre_tipo"));
+                t.setTipo(rs.getInt("id_tipotrabajador"));
+                t.setNombre(rs.getString("nombre"));
                 t.setApe_materno(rs.getString("ape_paterno"));
                 t.setApe_paterno(rs.getString("ape_materno"));
                 t.setSexo(rs.getString("sexo"));
@@ -122,6 +122,7 @@ public class trabajador_DAO implements int_trabajador{
                 t.setCorreo(rs.getString("correo"));
                 t.setContrasena(rs.getString("contrasena"));
                 t.setDireccion(rs.getString("direccion"));
+                lista.add(t);
             }
         } catch (SQLException ex) {
             Logger.getLogger(trabajador_DAO.class.getName()).log(Level.SEVERE, null, ex);

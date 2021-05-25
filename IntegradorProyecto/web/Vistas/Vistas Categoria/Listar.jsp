@@ -75,7 +75,7 @@
         </nav>
       </header> 
         <div class="container mt-3 mb-3">
-            <h1>Listar Subcategoria producto</h1>  
+            <h1>Listar Categoria producto</h1>  
             <table class="table table-striped">
                 <tr>
                     <th>Codigo</th>
@@ -84,12 +84,12 @@
                 </tr>           
                 <c:forEach var="liscatPro" items="${lista}">
                     <tr>
-                        <td>${liscatPro.getId()}</td>
+                        <td>${liscatPro.getCodigo()}</td>
                         <td>${liscatPro.getNombre()}</td>
 
                         <td>
-                            <a href="Control?accion=editarCategoria&codigo=${liscatPro.getId()}">Editar</a>
-                            <a href="Control?accion=eliminarCategoria&codigo=${liscatPro.getId()}">Eliminar</a>
+                            <a href="Control?accion=editarCategoria&codigo=${liscatPro.getCodigo()}">Editar</a>
+                            <a href="Control?accion=eliminarCategoria&codigo=${liscatPro.getCodigo()}">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

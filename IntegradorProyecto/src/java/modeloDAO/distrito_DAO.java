@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modeloDAO;
+
 import config.Conexion;
 import interfaces.int_distrito;
 import java.sql.PreparedStatement;
@@ -57,7 +54,7 @@ public class distrito_DAO implements int_distrito{
     @Override
     public boolean eliminar(int cod) {
         try {
-            String sql="delete from distrito where id="+d.getId();
+            String sql="delete from distrito where id="+cod;
             con = cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -72,7 +69,7 @@ public class distrito_DAO implements int_distrito{
     @Override
     public distrito listarUnDistrito(int id) {
         try {
-            String sql="selec id,nombre,costoenvio from distrito where id="+id;
+            String sql="select id,nom_dis,costoenvio from distrito where id="+id;
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -91,7 +88,7 @@ public class distrito_DAO implements int_distrito{
     @Override
     public ArrayList<distrito> listarTodosDistritos() {
          try {
-            String sql="selec id,nombre,costoenvio from distrito";
+            String sql="select * from distrito";
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -100,6 +97,7 @@ public class distrito_DAO implements int_distrito{
                 d.setId(rs.getInt("id"));
                 d.setNombre(rs.getString("nom_dis"));
                 d.setCosto(rs.getDouble("costoenvio"));
+                lista.add(d);
             }
         } catch (SQLException ex) {
             Logger.getLogger(distrito_DAO.class.getName()).log(Level.SEVERE, null, ex);

@@ -69,24 +69,24 @@
       </header>
         <div class="container mt-3 mb-3">
             <form action="Control" method="post">
-                <label>DNI</label>
+                
                 <input type="hidden" name="dni" value="${tra.getDni()}"><br>
                 <label>Tipo</label>
-                <input type="hidden" name="dni" value="${tra.getTipo()}"><br>
+                <input class="form-control" type="text" name="tipo" value="${tra.getTipo()}"><br>
                 <label>Nombre</label>
                 <input class="form-control" type="text" name="nombre" value="${tra.getNombre()}"><br>
                 <label>Apellido Paterno</label>
                 <input class="form-control" type="text" name="ape_paterno" value="${tra.getApe_paterno()}"><br>
                 <label>Apellido Materno</label>
-                <input class="form-control" type="text" name="ape_paterno" value="${tra.getApe_materno()}"><br>
+                <input class="form-control" type="text" name="ape_materno" value="${tra.getApe_materno()}"><br>
                 <label>sexo</label>
-                <input class="form-control" type="text" name="ape_paterno" value="${tra.getSexo()}"><br>
+                <input class="form-control" type="text" name="sexo" value="${tra.getSexo()}"><br>
                 <label>Telefono</label>
                 <input class="form-control" type="text" name="telefono" value="${tra.getTelefono()}"><br>
                 <label>Correo</label>
                 <input class="form-control" type="text" name="correo" value="${tra.getCorreo()}"><br>
                 <label>Contraseña</label>
-                <input class="form-control" type="text" name="correo" value="${tra.getContrasena()}"><br>
+                <input class="form-control" type="text" name="contrasena" value="${tra.getContrasena()}"><br>
                 <label>Direccion</label>
                 <input class="form-control" type="text" name="direccion" value="${tra.getDireccion()}"><br>
                 <input class="btn btn-outline-primary" type="submit" name="accion" value="Actualizar Cliente">  
