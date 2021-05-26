@@ -56,11 +56,11 @@
                   <a class="dropdown-item" href="Control?accion=listarTrabajador">Listar Trabajador</a>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Login.jsp" target="_blank">Iniciar Sesión</a>
+             <li class="nav-item">
+                <a class="nav-link" href="#" target="_blank">Iniciar Sesión</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">Mi Carrito</a>
+                <a class="nav-link" href="#">Mi Carrito</a>
               </li>
               
             </ul>
