@@ -78,9 +78,9 @@
                 <label>Apellido Paterno</label>
                 <input class="form-control" type="text" name="ape_paterno" value="${cli.getApe_paterno()}"><br>
                 <label>Apellido Materno</label>
-                <input class="form-control" type="text" name="ape_paterno" value="${cli.getApe_materno()}"><br>
+                <input class="form-control" type="text" name="ape_materno" value="${cli.getApe_materno()}"><br>
                 <label>sexo</label>
-                <input class="form-control" type="text" name="ape_paterno" value="${cli.getSexo()}"><br>
+                <input class="form-control" type="text" name="sexo" value="${cli.getSexo()}"><br>
                 <label>Telefono</label>
                 <input class="form-control" type="text" name="telefono" value="${cli.getTelefono()}"><br>
                 <label>Correo</label>
@@ -99,7 +99,7 @@
                 <label>Direccion</label>
                 <input class="form-control" type="text" name="direccion" value="${cli.getDireccion()}"><br>
                 <label>Referencia</label>
-                <input class="form-control" type="text" name="direccion" value="${cli.getReferencia()}"><br>
+                <input class="form-control" type="text" name="referencia" value="${cli.getReferencia()}"><br>
                 <input class="btn btn-outline-primary" type="submit" name="accion" value="Actualizar Cliente">  
             </form>
         </div>

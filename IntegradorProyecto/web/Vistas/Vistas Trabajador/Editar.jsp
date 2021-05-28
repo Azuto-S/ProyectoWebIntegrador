@@ -71,7 +71,7 @@
             <form action="Control" method="post">
                 
                 <input type="hidden" name="dni" value="${tra.getDni()}"><br>
-                <label>Tipo</label>
+                <label>Tipo (1: Administrador || 2:Repartidor)</label>
                 <input class="form-control" type="text" name="tipo" value="${tra.getTipo()}"><br>
                 <label>Nombre</label>
                 <input class="form-control" type="text" name="nombre" value="${tra.getNombre()}"><br>

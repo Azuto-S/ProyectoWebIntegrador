@@ -75,7 +75,7 @@
             <form action="Control" method="post">
                 <label>Dni</label>
                 <input class="form-control" type="text" name="dni"><br>
-                <label>Tipo</label>
+                <label>Tipo (1: Administrador || 2:Repartidor)</label>
                 <input class="form-control" type="text" name="tipo"><br>
                 <label>Nombre</label>
                 <input class="form-control" type="text" name="nombre"><br>

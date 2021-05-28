@@ -59,7 +59,7 @@ public class producto_DAO implements int_producto{
     @Override
     public boolean eliminar(int cod) {
         try {
-            String sql="delete from producto where id="+p.getId();
+            String sql="delete from producto where id="+cod;
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
